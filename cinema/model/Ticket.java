@@ -13,6 +13,7 @@ public class Ticket {
     private List<Service> services;
     private LocalDateTime purchaseTime;
     private double totalPrice;
+    private String invoiceId; // Liên kết với hóa đơn
 
     public Ticket(String id, ShowTime showTime, Customer customer) {
         this.id = id;
@@ -22,6 +23,7 @@ public class Ticket {
         this.services = new ArrayList<>();
         this.purchaseTime = LocalDateTime.now();
         this.totalPrice = 0;
+        this.invoiceId = null;
     }
 
     public void addSeat(String seat) {
@@ -80,6 +82,14 @@ public class Ticket {
 
     public double getTotalPrice() {
         return totalPrice;
+    }
+
+    public String getInvoiceId() {
+        return invoiceId;
+    }
+
+    public void setInvoiceId(String invoiceId) {
+        this.invoiceId = invoiceId;
     }
 
     @Override
